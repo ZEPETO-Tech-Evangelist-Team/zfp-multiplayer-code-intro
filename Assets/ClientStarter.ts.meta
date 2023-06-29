@@ -1,0 +1,45 @@
+fileFormatVersion: 2
+guid: 35fe2dcd4bd44174fa365929585dfd9b
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nclass
+    ClientStarter extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Start()
+    {\r\n        this.MultiplayVariable.add_RoomJoined((room) => {\r\n           
+    //make a reference to the room object\r\n            this._room = room;\r\n           
+    //1.) A.) Get reference to the room when you (client) joins the room\r\n           
+    console.log(\"[GREETING] [COIN_COLLECT] 1.) A.) !!!!! Client: Room Joined !!!!!\");\r\n           
+    //5.) Receive message with heading \"SERVER_GREETING\" coming from server\r\n           
+    room.AddMessageHandler(\"SERVER_GREETING\", (message) => {\r\n               
+    console.log(\"[GREETING] 5.) \" + message);\r\n            });\r\n           
+    // Register OnStateChangeCallback function to be called when schema variables
+    change on server\r\n            this._room.add_OnStateChange(this.OnStateChangeCallback.bind(this));\r\n       
+    });\r\n    }\r\n    //2.) Send a message to the room using the _room variable
+    that we made\r\n    SendGreetingToServer() {\r\n        console.log(\"[GREETING]
+    2.) Send Greeting To Server\");\r\n        this._room.Send(\"CLIENT_GREETING\",
+    \"Hi Server! I''m the Client!\");\r\n    }\r\n    //B.) Send a message to the
+    room using the _room variable that we made\r\n    SendCollectCoinToServer() {\r\n       
+    console.log(\"[COIN_COLLECT] B.) Send Collect Coint To Server\");\r\n       
+    this._room.Send(\"CLIENT_COLLECT_COIN\", 10);\r\n    }\r\n    //E.) collectionItems
+    changed on server, and OnStatechangeCallback is called) \r\n    OnStateChangeCallback(state,
+    isFirst) {\r\n        console.log(\"[COIN_COLLECT] E.) Coins on Server: \" +
+    state.collectionItems.coinsCount);\r\n    }\r\n}\r\nexports.default = ClientStarter;\r\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQ2xpZW50U3RhcnRlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkNsaWVudFN0YXJ0ZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFFQSxpREFBcUQ7QUFHckQsTUFBcUIsYUFBYyxTQUFRLHFDQUFxQjtJQUs1RCxLQUFLO1FBQ0QsSUFBSSxDQUFDLGlCQUFpQixnQkFBZSxDQUFDLElBQVcsRUFBRSxFQUFFO1lBQ2pELHFDQUFxQztZQUNyQyxJQUFJLENBQUMsS0FBSyxHQUFHLElBQUksQ0FBQztZQUVsQixvRUFBb0U7WUFDcEUsT0FBTyxDQUFDLEdBQUcsQ0FBQyxtRUFBbUUsQ0FBQyxDQUFDO1lBRWpGLHVFQUF1RTtZQUN2RSxJQUFJLENBQUMsaUJBQWlCLENBQUMsaUJBQWlCLEVBQUUsQ0FBQyxPQUFlLEVBQUUsRUFBRTtnQkFDMUQsT0FBTyxDQUFDLEdBQUcsQ0FBQyxpQkFBaUIsR0FBRyxPQUFPLENBQUMsQ0FBQztZQUM3QyxDQUFDLENBQUMsQ0FBQztZQUVILDhGQUE4RjtZQUM5RixJQUFJLENBQUMsS0FBSyxtQkFBa0IsSUFBSSxDQUFDLHFCQUFxQixhQUFDO1FBQzNELENBQUMsRUFBQTtJQUNMLENBQUM7SUFFRCxzRUFBc0U7SUFDdEUsb0JBQW9CO1FBQ2hCLE9BQU8sQ0FBQyxHQUFHLENBQUMsd0NBQXdDLENBQUMsQ0FBQztRQUN0RCxJQUFJLENBQUMsS0FBSyxDQUFDLElBQUksQ0FBQyxpQkFBaUIsRUFBRSw0QkFBNEIsQ0FBQyxDQUFDO0lBQ3JFLENBQUM7SUFFRCxzRUFBc0U7SUFDdEUsdUJBQXVCO1FBQ25CLE9BQU8sQ0FBQyxHQUFHLENBQUMsaURBQWlELENBQUMsQ0FBQztRQUMvRCxJQUFJLENBQUMsS0FBSyxDQUFDLElBQUksQ0FBQyxxQkFBcUIsRUFBRSxFQUFFLENBQUMsQ0FBQztJQUMvQyxDQUFDO0lBRUQsOEVBQThFO0lBQzlFLHFCQUFxQixDQUFDLEtBQWEsRUFBRSxPQUFpQjtRQUNsRCxPQUFPLENBQUMsR0FBRyxDQUFDLHNDQUFzQyxHQUFHLEtBQUssQ0FBQyxlQUFlLENBQUMsVUFBVSxDQUFDLENBQUM7SUFDM0YsQ0FBQztDQUVKO0FBeENELGdDQXdDQyJ9","assetPath":"Assets/ClientStarter.ts","manifest":{"properties":[{"assembly":"ZEPETO.World","name":"MultiplayVariable","type":"ZEPETO.World.ZepetoWorldMultiplay","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"ClientStarter","description":"","hasAnimatorMove":false},"isCompiled":true}'
+  typescriptHash: 83a7835fdb80353a362781fa5f258470
+  onlyWriteTrigger: 0

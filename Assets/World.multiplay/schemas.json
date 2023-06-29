@@ -1,0 +1,4 @@
+{
+"State" : {"collectionItems" : "CollectionItems"},
+"CollectionItems" : {"coinsCount" : "number","potionCount" : "number"}
+}
